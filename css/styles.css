@@ -142,6 +142,38 @@ body {
     animation: fadeInUp 0.8s ease-out 0.4s both;
 }
 
+.hero-arrow {
+    position: absolute;
+    left: 50%;
+    bottom: 24px;
+    transform: translateX(-50%);
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0.85;
+    animation: arrowBounce 2s infinite;
+}
+
+.hero-arrow--hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s cubic-bezier(.4,2,.3,1);
+}
+
+@keyframes arrowBounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(12px); }
+}
+
+@media (max-width: 768px) {
+    .hero-arrow svg {
+        width: 36px;
+        height: 36px;
+    }
+    .hero-arrow {
+        bottom: 12px;
+    }
+}
+
 /* ========================================
    BUTTONS
    ======================================== */
@@ -250,7 +282,11 @@ body {
     width: 100%;
     height: auto;
     border-radius: 20px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    box-shadow:
+        0 0 30px rgba(74, 144, 226, 0.4),
+        0 0 60px rgba(74, 144, 226, 0.25),
+        0 0 90px rgba(123, 179, 232, 0.15);
+    filter: drop-shadow(0 0 40px rgba(74, 144, 226, 0.3));
 }
 
 /* ========================================

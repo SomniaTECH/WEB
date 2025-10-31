@@ -6,6 +6,7 @@
     <title>Somnia - Умная подушка для здорового сна</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
     <!-- Google Fonts: Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -39,8 +40,15 @@
                 <p class="lead mb-4">Не просто подушка, а ваш персональный ассистент здорового сна</p>
                 <div class="hero-buttons">
                     <a href="#features" class="btn-primary-custom">Узнать больше</a>
-                    <a href="#contact" class="btn-outline-custom">Оформить предзаказ</a>
                 </div>
+            </div>
+            <!-- Мягкая стрелочка вниз -->
+            <div class="hero-arrow">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <ellipse cx="24" cy="44" rx="12" ry="4" fill="#e3f2fd" opacity="0.7"/>
+                  <path d="M24 12V36" stroke="#7bb3e8" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M16 28L24 36L32 28" stroke="#4a90e2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
             </div>
         </div>
     </section>
@@ -50,7 +58,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
-                    <img src="https://via.placeholder.com/600x400/4a90e2/ffffff?text=Somnia+Pillow" alt="Somnia Pillow" class="product-image">
+                    <img src="img/pillow.png" alt="Somnia Pillow" class="product-image border-0 shadow-none">
                 </div>
                 <div class="col-lg-6">
                     <h2 class="section-title">Somnia</h2>
@@ -578,21 +586,21 @@
                     </p>
 
                     <div class="contact-card">
-                        <form id="feedbackForm">
+                        <form action="https://send.pageclip.co/Jd3Z9ZPANgqIZf7R1IqwC2Z5H03nRpVm" class="pageclip-form" id="feedbackForm" method="post" netlify>
                             <div class="mb-4">
-                                <input type="text" class="form-control" id="name" placeholder="Ваше имя" required>
+                                <input type="text" class="form-control" name="name" placeholder="Ваше имя" required>
                             </div>
                             <div class="mb-4">
-                                <input type="email" class="form-control" id="email" placeholder="Email" required>
+                                <input type="email" class="form-control" name="email" placeholder="Email" required>
                             </div>
                             <div class="mb-4">
-                                <input type="tel" class="form-control" id="phone" placeholder="Телефон">
+                                <input type="tel" class="form-control" name="phone" placeholder="Телефон">
                             </div>
                             <div class="mb-4">
-                                <textarea class="form-control" id="message" rows="5" placeholder="Ваше сообщение" required></textarea>
+                                <textarea class="form-control" name="message" rows="5" placeholder="Сообщение" required></textarea>
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="btn-submit">Отправить сообщение</button>
+                                <button type="submit" class="btn-submit pageclip-form__submit">Отправить</button>
                             </div>
                         </form>
                         <div class="text-center mt-4" style="border-top: 1px solid #ddd; padding-top: 2rem;">
@@ -630,6 +638,15 @@
             } else {
                 navbar.classList.remove('scrolled');
             }
+            // Скрытие стрелки при скролле
+            const heroArrow = document.querySelector('.hero-arrow');
+            if (heroArrow) {
+                if (window.scrollY > 50) {
+                    heroArrow.classList.add('hero-arrow--hidden');
+                } else {
+                    heroArrow.classList.remove('hero-arrow--hidden');
+                }
+            }
         });
 
         // Smooth scrolling
@@ -647,13 +664,6 @@
                     });
                 }
             });
-        });
-
-        // Form submission
-        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
-            this.reset();
         });
 
         // Animation on scroll
@@ -678,5 +688,6 @@
             observer.observe(el);
         });
     </script>
+<script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
 </body>
 </html>
