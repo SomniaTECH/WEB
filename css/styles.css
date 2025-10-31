@@ -197,17 +197,6 @@ body {
 
 @media (max-width: 768px) {
     .hero-arrow svg {
-        width: 48px;
-        height: 48px;
-    }
-    .hero-arrow {
-        bottom: 96px;
-        opacity: 0.95;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero-arrow svg {
         width: 36px;
         height: 36px;
     }
