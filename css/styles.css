@@ -2,6 +2,13 @@
    SOMNIA - Main Styles
    ======================================== */
 
+@font-face {
+    font-family: 'TransformaSans';
+    src: url('../fonts/Transforma.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
     --primary-color: #4a90e2;
     --secondary-color: #7bb3e8;
@@ -19,9 +26,20 @@
 }
 
 body {
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'TransformaSans', 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--dark-color);
     overflow-x: hidden;
+    opacity: 0;
+    animation: pageLoadFade 0.8s ease-out forwards;
+}
+
+@keyframes pageLoadFade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 /* ========================================
@@ -50,6 +68,19 @@ body {
     font-weight: 700;
     color: var(--primary-color) !important;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+.navbar-logo:hover {
+    transform: scale(1.05);
 }
 
 .nav-link {
