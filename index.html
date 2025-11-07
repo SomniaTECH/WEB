@@ -625,6 +625,18 @@
         </div>
     </footer>
 
+    <!-- Toast Container -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toastContainer" style="z-index: 11;">
+        <div id="successToast" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    ✅ Спасибо! Ваше сообщение успешно отправлено. Мы скоро с вами свяжемся.
+                </div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
     <script src="js/bootstrap.bundle.min.js"></script>
     <script>
         // Navbar scroll effect
@@ -684,6 +696,19 @@
             el.style.transition = 'all 0.6s ease-out';
             observer.observe(el);
         });
+
+        // Handle form submission and show toast
+        const feedbackForm = document.getElementById('feedbackForm');
+        if (feedbackForm) {
+            feedbackForm.addEventListener('pageclip:success', function() {
+                const successToast = document.getElementById('successToast');
+                const toast = new bootstrap.Toast(successToast);
+                toast.show();
+
+                // Очистить форму
+                feedbackForm.reset();
+            });
+        }
     </script>
     <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
 </body>
