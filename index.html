@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Somnia - Умная подушка для здорового сна</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="img/fav/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="img/fav/favicon.svg">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/fav/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="img/fav/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="img/fav/favicon-64x64.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="img/fav/favicon-128x128.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="img/fav/favicon-256x256.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="img/fav/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="img/fav/android-chrome-512x512.png">
+    <link rel="manifest" href="img/fav/site.webmanifest">
+
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
@@ -581,7 +595,8 @@
                     </p>
 
                     <div class="contact-card">
-                        <form id="feedbackForm" action="https://kwesforms.com/api/f/ui4RDSPooI6i4k55LtvZ" class="kf-form" method="post">
+                        <form id="feedbackForm" action="https://api.staticforms.dev/submit" class="" method="post">
+                            <input type="hidden" name="apiKey" value="sf_jjg8d2n9md7k05i5197ji064" />
                             <div class="mb-4">
                                 <input type="text" class="form-control" name="name" placeholder="Ваше имя" required>
                             </div>
@@ -638,7 +653,9 @@
     </div>
 
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/somnia.js"></script>
     <script>
+
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
@@ -715,6 +732,5 @@
             });
         }
     </script>
-<script src="https://kwesforms.com/v2/kf-script.js" defer></script>
 </body>
 </html>
