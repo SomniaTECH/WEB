@@ -581,7 +581,7 @@
                     </p>
 
                     <div class="contact-card">
-                        <form action="https://send.pageclip.co/CnW7SJTsTToRprfhk1xaUqEAyQmw2zzx" class="pageclip-form" method="post">
+                        <form id="feedbackForm" action="https://kwesforms.com/api/f/ui4RDSPooI6i4k55LtvZ" class="kf-form" method="post">
                             <div class="mb-4">
                                 <input type="text" class="form-control" name="name" placeholder="Ваше имя" required>
                             </div>
@@ -595,7 +595,7 @@
                                 <textarea class="form-control" name="message" rows="5" placeholder="Сообщение" required></textarea>
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="btn-submit pageclip-form__submit">
+                                <button type="submit" class="btn-submit">
                                     <span>Отправить</span>
                                 </button>
                             </div>
@@ -697,19 +697,24 @@
             observer.observe(el);
         });
 
-        // Handle form submission and show toast
+        // Handle form submission with Pageclip
         const feedbackForm = document.getElementById('feedbackForm');
         if (feedbackForm) {
-            feedbackForm.addEventListener('pageclip:success', function() {
-                const successToast = document.getElementById('successToast');
-                const toast = new bootstrap.Toast(successToast);
-                toast.show();
-
-                // Очистить форму
-                feedbackForm.reset();
+            feedbackForm.addEventListener('submit', function(e) {
+                // Позволить Pageclip обработать отправку
+                setTimeout(() => {
+                    // После небольшой задержки покажем toast
+                    const successToast = document.getElementById('successToast');
+                    if (successToast) {
+                        const toast = new bootstrap.Toast(successToast);
+                        toast.show();
+                        // Очистить форму
+                        feedbackForm.reset();
+                    }
+                }, 500);
             });
         }
     </script>
-    <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
+<script src="https://kwesforms.com/v2/kf-script.js" defer></script>
 </body>
 </html>
